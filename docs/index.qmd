@@ -1,0 +1,188 @@
+---
+title: "Lancet_RACING"
+author: "Jihee Han"
+format:
+  revealjs:
+    theme: default
+editor: source
+logo: zarathu_logo.png
+date: 09/08/2023
+---
+
+## Introduction{.smaller}
+#### Background
+- high-intensity statin -> intensive lowering of LDL cholesterol concentration
+- **drug combination** show greater efficacy and lower risks than increasing doses of one drug
+  - Ezetimibe: inhibits cholesterol absorption and increases clearance of cholesterol from the blood
+
+## Introduction{.smaller}
+#### Obejctive
+- to compare **3-year** clinical efficacy and safety of **moderate-intensity statin with ezetimibe combination therapy** versus high-intensity statin monotherapy in patients who are at very high risk for cardiovascular diseases
+
+## Methods{.smaller}
+#### Study Design
+- Prospective, Multicenter, Randomized, Open-label study
+```{r}
+#| eval: true
+#| echo: false
+#| output: true
+method_table <- data.frame(
+  CombinationGroup = c("rosuvastatin 10mg + ezetimibe 10mg"),
+  MonoGroup = c("rosuvastatin 20mg")
+)
+row.names(method_table) <- c("therapy")
+
+knitr::kable(method_table)
+```
+- endpoint: 3-year
+- in the ITT population with NI margin of 2.0%
+
+## Methods{.smaller}
+#### Participants
+- Participants: patients with ASCVD requiring achievement of LDL-C concentrations of less than 70mg/dL
+  - revious myocardial infarction (MI), acute coronary syndrome, history of coronary revascularisation or other arterial revascularisation procedures, ischaemic stroke, or peripheral artery disease (PAD)
+
+
+## Methods{.smaller}
+#### Procedures
+- Procedures: maintenance of the initial dose was strongly recommended
+
+## Methods{.smaller}
+#### Outcomes
+- Primary endpoint:the occurrence of cardiovascular death, major cardiovascular events, or non-fatal stroke within 3 years
+- Secondary endpoint: clinical efficacy and safety
+  - Efficacy endpoint: proportion of participants whose LDL-C concentration are reduced to less than 70mg/dL at 1, 2, and 3-years 
+  - Safety endpoint: discontinuation or dose reduction of study medication caused by intolerance and the occurrence of clinical adverse events
+  
+## Methods{.smaller}
+#### Sample Size
+- Primary objective: 1605 patients were required for each group considering a 5% one-side alpha error rate and 80% power
+- Secondary objective: 220 patients were required for each group considering a 5% two-sided alpha error rate and 80% power
+
+## Methods{.smaller}
+#### Statistical Analysis
+1. Kaplan-Merier method: time-to-event analysis
+2. Log-rank test: event rates btw two groups
+3. Cox proportional hazard regression model: HRs with 95% CI
+- NI for the primary endpoint: upper CI for the difference in the incidence of the primary endpoint btw  two groups was less than 2.0% = NI declared
+- log-rank tests for the secondary endpoint
+```{r}
+#| eval: true
+#| echo: false
+#| output: true
+population_table <- data.frame(
+  primary = c("O", "X"),
+  sensitivity = c("X", "O"),
+  safety = c("X", "O")
+)
+row.names(population_table) <- c("ITT population", "PP population")
+
+knitr::kable(population_table)
+```
+
+
+## Results{.smaller}
+#### Base
+
+::: {.panel-tabset}
+
+### figure
+
+::::{.columns}
+
+:::{.column width="45%"}
+![](lancet_racing_figs/lancet_racing_tb1_1.png)
+:::
+
+:::{.column width="45%}
+![](lancet_racing_figs/lancet_racing_tb1_2.png)
+:::
+
+::::
+
+
+### description
+- baseline characteristics: not statistically different
+- 95.8% of total completed a 3-year follow up
+- other cardiovascular medication: not statistically different
+
+:::
+
+## Results{.smaller}
+#### Primary endpoint
+![](lancet_racing_figs/lancet_racing_tb2.png)
+
+## Results{.smaller}
+#### Primary endpoint
+- post-hoc analysis
+  - upper limit of one-sided 97.5% CI of the diff was 1.13%: met the NI margin(02.69 to 1.13)
+
+  ![](lancet_racing_figs/lancet_racing_fig2.jpg){width="60%"}
+
+## Results{.smaller}
+#### Primary endpoint
+- sensitivity analysis
+  - primary endpoint occured in 9.1% of combi group, 9.4% of mono group
+  - post-hoc upper limit of one-sided 97.5% CI of the diff in primary endpoiont was 1.69%: met NI margin of 2.0%(95% CI: -2.28 to 1.69)
+
+## Results{.smaller}
+#### Secondary endpoints
+![](lancet_racing_figs/lancet_racing_tb3.png)
+
+## Results{.smaller}
+#### Secondary endpoints
+- post-hoc analysis: LDL-C concentration of less than 55mf/dL
+```{r}
+#| eval: true
+#| echo: false
+#| output: true
+LDL_C_post_hoc_table <- data.frame(
+  year_1 = c("42%", "25%"),
+  year_2 = c("45%", "29%"),
+  year_3 = c("42%", "25%")
+)
+row.names(LDL_C_post_hoc_table) <- c("combi group", "mono gorup")
+
+knitr::kable(LDL_C_post_hoc_table)
+```
+
+## Results{.smaller}
+#### Secondary endpoints
+- discontinuation or dose reduction: 4.8% in combination group and 8.2% in monotherapy group
+
+## Results{.smaller}
+#### Subgroup analysis
+::::{.columns}
+
+:::{.column width="45%"}
+![](lancet_racing_figs/lancet_racing_fig3_1.png)
+:::
+
+:::{.column width="45%}
+![](lancet_racing_figs/lancet_racing_fig3_2.png)
+:::
+
+::::
+
+## Discussion{.smaller}
+#### Conclusion
+1. patients with ASCVD - combination therapy was NI to monotherapy for the 3-year
+2. NI was achieved with (1) a higher proportion of LDL-C concentration of less than 70mg/dL and (2) a lower prevalence of discontinuation or dose reduction caused by intolerance to the study drug
+- patients with high risk cardiovascular diseases - combination therapy also achieve greater efficacy and lower risks
+- addition of ezetimibe expected to reduce the risk of adverse effects
+- dyslipidaemia guidelines - (1) less than 55mg/dL (2) at least 50% from baseline
+
+## Discussion{.smaller}
+#### Importance
+1. reduced statin does
+2. Long-term and Large num of patients - in previous studies: 24 weeks, 891 patients
+3. Clinical primary endpoint
+
+## Discussion{.smaller}
+#### Limitation
+1. Open-label study -> necebo effect
+2. Lower than anticipated event rates -> NI margin of 2.0% allowed for a more generous CI
+3. Small num of events -> comparison of the individual clinical outcomes of the primary endpoint might be difficult
+
+
+
